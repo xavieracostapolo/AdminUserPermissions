@@ -1,6 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using Xacosta.AdminPermissions.Infraestructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContextPool<PersistenceContext>(o => o.UseSqlServer("Specify the database connection string here..."));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
