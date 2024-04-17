@@ -28,6 +28,7 @@ bin/kafka-console-consumer --topic quickstart-events --from-beginning --bootstra
 bin/kafka-console-producer --topic quickstart-events --bootstrap-server localhost:9092
 
 ### links de apoyo en el proyecto
+- https://www.youtube.com/watch?v=5exN6nQ7558&t=1285s
 - https://www.youtube.com/watch?v=4b3bSc3T9Bs&t=908s
 - https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04-es
 - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-es
