@@ -1,21 +1,6 @@
 version: '3.8'
 
-services:
-  service1:
-    image: nginx:latest
-    ports:
-      - 8080:80
-    volumes:
-      - ./app:/usr/share/nginx/html
-    environment:
-      - ENVIRONMENT=development
-
-  service2:
-    image: mysql:latest
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=mydb
-
+services:  
   elasticsearch:
     container_name: elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:8.7.1
