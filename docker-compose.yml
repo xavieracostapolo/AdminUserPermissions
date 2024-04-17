@@ -1,6 +1,19 @@
 version: '3.8'
 
 services:  
+  sqlserver:
+    container_name: sqlserver2019
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    user: '0:0'
+    ports:
+      - 1433:1433
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: PasswordO1.
+      MSSQL_PID: Developer
+    volumes:
+      - ~/docker/sqlserver-data:/var/opt/mssql
+      
   elasticsearch:
     container_name: elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:8.7.1
