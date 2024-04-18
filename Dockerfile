@@ -9,7 +9,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Xacosta.AdminPermissions.WebApi/Xacosta.AdminPermissions.WebApi.csproj", "Xacosta.AdminPermissions.WebApi/"]
+COPY ["Xacosta.AdminPermissions/.", "Xacosta.AdminPermissions/"]
 RUN dotnet restore "./Xacosta.AdminPermissions.WebApi/Xacosta.AdminPermissions.WebApi.csproj"
 COPY . .
 WORKDIR "/src/Xacosta.AdminPermissions.WebApi"
