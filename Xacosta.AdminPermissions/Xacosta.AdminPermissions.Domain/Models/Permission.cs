@@ -2,6 +2,7 @@
 
 namespace Xacosta.AdminPermissions.Domain.Models
 {
+    [Table("Permission")]
     public class Permission : IEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

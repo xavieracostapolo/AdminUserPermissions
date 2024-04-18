@@ -35,11 +35,11 @@ namespace Xacosta.AdminPermissions.Infraestructure.Services
 
             if (orderBy != null)
             {
-                return await orderBy(query).ToListAsync();
+                return await orderBy(query).AsNoTracking().ToListAsync();
             }
             else
             {
-                return await query.ToListAsync();
+                return await query.AsNoTracking().ToListAsync();
             }
         }
 

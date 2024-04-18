@@ -18,9 +18,15 @@ namespace Xacosta.AdminPermissions.Application.Feature.Permissions.Get
                 TipoPermiso = 1
             });
 
+            await _unitOfWork.Repository<PermissionType>().Insert(new PermissionType()
+            {
+                Descripcion = "Desc Type"
+            });
+
             await _unitOfWork.Commit();
 
             var resp = await _unitOfWork.Repository<Permission>().Get();
+            var resp2 = await _unitOfWork.Repository<PermissionType>().Get();
 
             if (resp == null)
                 throw new NotFoundException();
