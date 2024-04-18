@@ -1,7 +1,10 @@
-﻿namespace Xacosta.AdminPermissions.Domain.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Xacosta.AdminPermissions.Domain.Models
 {
     public class Permission : IEntity
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string? NombreEmpleado { get; set; }
         public string? ApellidoEmpleado { get; set; }

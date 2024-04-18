@@ -11,18 +11,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContextPool<PersistenceContext>(o => o.UseSqlServer("Specify the database connection string here..."));
-
+builder.Services.AddDbContextPool<PersistenceContext>(o =>
+{
+    //o.UseSqlServer("Specify the database connection string here...");
+    o.UseInMemoryDatabase("dbTest");
+});
 
 Log.Information("Configurando MediaTR.");
-//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
-//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining(typeof(GetPermissionsQuery)));
-/*
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
                 typeof(GetPermissionsQuery).Assembly
                 ));
-*/
+
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
 Log.Information("Configurando IoC.");

@@ -2,7 +2,7 @@ version: '3.8'
 
 services:  
   sqlserver:
-    container_name: sqlserver2019
+    container_name: sqlserver
     image: mcr.microsoft.com/mssql/server:2022-latest
     user: '0:0'
     ports:

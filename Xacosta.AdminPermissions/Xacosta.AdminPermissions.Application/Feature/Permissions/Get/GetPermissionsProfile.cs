@@ -7,7 +7,7 @@ namespace Xacosta.AdminPermissions.Application.Feature.Permissions.Get
     {
         public GetPermissionsProfile()
         {
-            CreateMap<Permission, GetPermissionsResponse>();
+            CreateMap<Permission, GetPermissionsResponse>().ReverseMap();
         }
     }
 }

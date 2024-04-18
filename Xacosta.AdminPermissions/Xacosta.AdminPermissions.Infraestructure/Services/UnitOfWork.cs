@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Concurrent;
 using Xacosta.AdminPermissions.Domain.ContractsInfraestructure;
 
 namespace Xacosta.AdminPermissions.Infraestructure.Services
@@ -6,12 +7,12 @@ namespace Xacosta.AdminPermissions.Infraestructure.Services
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private readonly PersistenceContext _dbContext;
-        private readonly Dictionary<Type, object> _repositories;
+        private readonly ConcurrentDictionary<Type, object> _repositories;
 
         public UnitOfWork(PersistenceContext dbContext)
         {
             _dbContext = dbContext;
-            _repositories = new Dictionary<Type, object>();
+            _repositories = new ConcurrentDictionary<Type, object>();
         }
 
         public async Task Commit()
@@ -45,7 +46,7 @@ namespace Xacosta.AdminPermissions.Infraestructure.Services
             }
 
             var repository = new Repository<T>(_dbContext);
-            _repositories.Add(typeof(T), repository);
+            _repositories.TryAdd(typeof(T), repository);
             return repository;
         }
 
