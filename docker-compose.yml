@@ -43,6 +43,8 @@ services:
     container_name: zoo1
     ports:
       - "2181:2181"    
+    networks:
+      - elastic
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_SERVER_ID: 1
@@ -54,7 +56,9 @@ services:
     container_name: kafka1
     ports:
       - '9092:9092'
-      - '29094:29094'   
+      - '29094:29094'  
+    networks:
+      - elastic
     environment:
       KAFKA_BROKER_ID: 0
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
