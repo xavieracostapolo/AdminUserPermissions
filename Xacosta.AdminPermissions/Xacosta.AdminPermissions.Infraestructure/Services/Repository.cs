@@ -25,7 +25,7 @@ namespace Xacosta.AdminPermissions.Infraestructure.Services
             //Todo: test kafka
             var config = new ProducerConfig
             {
-                BootstrapServers = "138.197.116.22:9092"
+                BootstrapServers = "kafka1:9092"
             };
 
             using var producer = new ProducerBuilder<Null, string>(config).Build();

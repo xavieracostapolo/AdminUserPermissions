@@ -1,6 +1,17 @@
 version: '3.8'
 
 services:  
+  api:
+    container_name: backend
+    build:
+        context: .
+        dockerfile: Xacosta.AdminPermissions.WebApi/Dockerfile
+    ports:
+        - 8080:8080
+        - 8081:8081
+    networks:
+      - elastic
+
   sqlserver:
     container_name: sqlserver
     image: mcr.microsoft.com/mssql/server:2022-latest
