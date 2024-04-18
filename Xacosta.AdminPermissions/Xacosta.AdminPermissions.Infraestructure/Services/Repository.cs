@@ -1,31 +1,77 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using Xacosta.AdminPermissions.Domain.ContractsInfraestructure;
 
 namespace Xacosta.AdminPermissions.Infraestructure.Services
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<TEntity> :  IRepository<TEntity> where TEntity : class
     {
-        private readonly PersistenceContext _dbContext;
-        private readonly DbSet<T> _dbSet;
+        internal PersistenceContext context;
+        internal DbSet<TEntity> dbSet;
 
-        public Repository(PersistenceContext dbContext)
+        public Repository(PersistenceContext _context)
         {
-            _dbContext = dbContext;
+            context = _context;
+            dbSet = context.Set<TEntity>();
         }
 
-        public void Add(T entity)
+        public async Task<IEnumerable<TEntity>> Get(
+            Expression<Func<TEntity, bool>> filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+            string includeProperties = "")
         {
-            _dbSet.Add(entity);
+            IQueryable<TEntity> query = dbSet;
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            foreach (var includeProperty in includeProperties.Split
+                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty);
+            }
+
+            if (orderBy != null)
+            {
+                return await orderBy(query).ToListAsync();
+            }
+            else
+            {
+                return await query.ToListAsync();
+            }
         }
 
-        public IList<T> GetAll()
+        public async Task<TEntity> GetByID(object id)
         {
-            throw new NotImplementedException();
+            return await dbSet.FindAsync(id);
         }
 
-        public T GetById(object id)
+        public async Task Insert(TEntity entity)
         {
-            throw new NotImplementedException();
+            await dbSet.AddAsync(entity);
+        }
+
+        public async Task Delete(object id)
+        {
+            TEntity entityToDelete = await dbSet.FindAsync(id);
+            Delete(entityToDelete);
+        }
+
+        public void Delete(TEntity entityToDelete)
+        {
+            if (context.Entry(entityToDelete).State == EntityState.Detached)
+            {
+                dbSet.Attach(entityToDelete);
+            }
+            dbSet.Remove(entityToDelete);
+        }
+
+        public void Update(TEntity entityToUpdate)
+        {
+            dbSet.Attach(entityToUpdate);
+            context.Entry(entityToUpdate).State = EntityState.Modified;
         }
     }
 }

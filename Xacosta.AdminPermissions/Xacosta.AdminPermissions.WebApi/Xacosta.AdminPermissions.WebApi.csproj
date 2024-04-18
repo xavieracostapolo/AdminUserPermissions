@@ -9,12 +9,22 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+		<PackageReference Include="MediatR" Version="12.2.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
+		<PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.3" />
+		<PackageReference Include="Serilog.Exceptions" Version="5.6.0" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+		<PackageReference Include="Serilog.Sinks.Debug" Version="1.0.1" />
+		<PackageReference Include="Serilog.Sinks.Elasticsearch" Version="8.2.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Xacosta.AdminPermissions.Application\Xacosta.AdminPermissions.Application.csproj" />
+		<ProjectReference Include="..\Xacosta.AdminPermissions.Domain\Xacosta.AdminPermissions.Domain.csproj" />
 		<ProjectReference Include="..\Xacosta.AdminPermissions.Infraestructure\Xacosta.AdminPermissions.Infraestructure.csproj" />
 	</ItemGroup>
 

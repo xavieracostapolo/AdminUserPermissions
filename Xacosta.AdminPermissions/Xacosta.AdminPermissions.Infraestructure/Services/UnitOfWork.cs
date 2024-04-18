@@ -6,7 +6,7 @@ namespace Xacosta.AdminPermissions.Infraestructure.Services
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private readonly PersistenceContext _dbContext;
-        private Dictionary<Type, object> _repositories;
+        private readonly Dictionary<Type, object> _repositories;
 
         public UnitOfWork(PersistenceContext dbContext)
         {
@@ -22,14 +22,14 @@ namespace Xacosta.AdminPermissions.Infraestructure.Services
         private bool disposed = false;
         protected virtual void Dispose(bool disposing)
         {
-            if (!this.disposed)
+            if (!disposed)
             {
                 if (disposing)
                 {
                     _dbContext.Dispose();
                 }
             }
-            this.disposed = true;
+            disposed = true;
         }
         public void Dispose()
         {
