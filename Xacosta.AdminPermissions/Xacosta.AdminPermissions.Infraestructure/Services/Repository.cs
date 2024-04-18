@@ -22,24 +22,6 @@ namespace Xacosta.AdminPermissions.Infraestructure.Services
             string includeProperties = "")
         {
 
-            /*
-            //Todo: test kafka
-            var config = new ProducerConfig
-            {
-                BootstrapServers = "kafka1:9092"
-            };
-
-            using var producer = new ProducerBuilder<Null, string>(config).Build();
-
-            var topic = "quickstart-events";
-            var message = "Hola, Kafka!";
-
-            var deliveryReport = producer.ProduceAsync(topic, new Message<Null, string> { Value = message }).GetAwaiter().GetResult();
-
-            Console.WriteLine($"Mensaje enviado a {deliveryReport.TopicPartitionOffset}");
-            */
-
-
             IQueryable<TEntity> query = dbSet;
 
             if (filter != null)
