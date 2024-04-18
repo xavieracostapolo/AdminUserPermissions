@@ -22,6 +22,7 @@ namespace Xacosta.AdminPermissions.Infraestructure.Services
             string includeProperties = "")
         {
 
+            /*
             //Todo: test kafka
             var config = new ProducerConfig
             {
@@ -36,7 +37,7 @@ namespace Xacosta.AdminPermissions.Infraestructure.Services
             var deliveryReport = producer.ProduceAsync(topic, new Message<Null, string> { Value = message }).GetAwaiter().GetResult();
 
             Console.WriteLine($"Mensaje enviado a {deliveryReport.TopicPartitionOffset}");
-
+            */
 
 
             IQueryable<TEntity> query = dbSet;

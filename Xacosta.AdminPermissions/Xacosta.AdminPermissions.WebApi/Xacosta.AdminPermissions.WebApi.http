@@ -4,3 +4,8 @@ GET {{Xacosta.AdminPermissions.WebApi_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+GET http://138.197.116.22:8080/weatherforecast/
+Accept: application/json
+
+###
