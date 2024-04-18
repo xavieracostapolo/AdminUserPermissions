@@ -10,9 +10,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Xacosta.AdminPermissions/.", "Xacosta.AdminPermissions/"]
-RUN dotnet restore "./Xacosta.AdminPermissions.WebApi/Xacosta.AdminPermissions.WebApi.csproj"
+RUN dotnet restore "./Xacosta.AdminPermissions/Xacosta.AdminPermissions.WebApi/Xacosta.AdminPermissions.WebApi.csproj"
 COPY . .
-WORKDIR "/src/Xacosta.AdminPermissions.WebApi"
+WORKDIR "/src/Xacosta.AdminPermissions/Xacosta.AdminPermissions.WebApi"
 RUN dotnet build "./Xacosta.AdminPermissions.WebApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
