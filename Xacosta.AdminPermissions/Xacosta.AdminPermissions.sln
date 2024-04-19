@@ -5,11 +5,13 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacosta.AdminPermissions.WebApi", "Xacosta.AdminPermissions.WebApi\Xacosta.AdminPermissions.WebApi.csproj", "{F53326F8-EE2C-4632-9C11-492BF4CEFB40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacosta.AdminPermissions.Domain", "Xacosta.AdminPermissions.Domain\Xacosta.AdminPermissions.Domain.csproj", "{F82695C6-C7FB-4310-B2F2-F3E77F79A881}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacosta.AdminPermissions.Domain", "Xacosta.AdminPermissions.Domain\Xacosta.AdminPermissions.Domain.csproj", "{F82695C6-C7FB-4310-B2F2-F3E77F79A881}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacosta.AdminPermissions.Infraestructure", "Xacosta.AdminPermissions.Infraestructure\Xacosta.AdminPermissions.Infraestructure.csproj", "{50D4B3C5-E24E-4056-BCE7-2E465B680AEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacosta.AdminPermissions.Infraestructure", "Xacosta.AdminPermissions.Infraestructure\Xacosta.AdminPermissions.Infraestructure.csproj", "{50D4B3C5-E24E-4056-BCE7-2E465B680AEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacosta.AdminPermissions.Application", "Xacosta.AdminPermissions.Application\Xacosta.AdminPermissions.Application.csproj", "{59B69E9B-F01C-4CAD-B476-1253CC04DD0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacosta.AdminPermissions.Application", "Xacosta.AdminPermissions.Application\Xacosta.AdminPermissions.Application.csproj", "{59B69E9B-F01C-4CAD-B476-1253CC04DD0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacosta.AdminPermissions.Tests", "Xacosta.AdminPermissions.Tests\Xacosta.AdminPermissions.Tests.csproj", "{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{59B69E9B-F01C-4CAD-B476-1253CC04DD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59B69E9B-F01C-4CAD-B476-1253CC04DD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59B69E9B-F01C-4CAD-B476-1253CC04DD0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
