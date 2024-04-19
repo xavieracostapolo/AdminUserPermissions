@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Xacosta.AdminPermissions.Domain.Models;
 
-namespace Xacosta.AdminPermissions.Application.Feature.Permissions.Get
+namespace Xacosta.AdminPermissions.Application.Feature
 {
-    internal class GetPermissionsProfile : Profile
+    public class GetPermissionsProfile : Profile
     {
         public GetPermissionsProfile()
         {

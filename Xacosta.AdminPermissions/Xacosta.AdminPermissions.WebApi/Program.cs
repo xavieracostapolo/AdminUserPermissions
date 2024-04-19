@@ -1,4 +1,5 @@
 using Elastic.Clients.Elasticsearch;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -6,8 +7,9 @@ using Serilog;
 using Serilog.Exceptions;
 using Serilog.Sinks.Elasticsearch;
 using System.Reflection;
-using Xacosta.AdminPermissions.Application.Feature.Permissions.Get;
+using Xacosta.AdminPermissions.Application.Feature;
 using Xacosta.AdminPermissions.Application.Middlewares;
+using Xacosta.AdminPermissions.Application.Services;
 using Xacosta.AdminPermissions.Infraestructure;
 using Xacosta.AdminPermissions.WebApi.Middleware;
 
@@ -34,9 +36,17 @@ builder.Services.AddDbContextPool<PersistenceContext>(o =>
 
 Log.Information("Configurando MediaTR.");
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
-                typeof(GetPermissionsQuery).Assembly
+                typeof(GetPermissionsQuery).Assembly,
+                typeof(ModifyPermissionsCommand).Assembly,
+                typeof(RequestPermissionsCommand).Assembly
                 ));
 
+Log.Information("Configurando Validators.");
+//builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddScoped<IValidator<RequestPermissionsCommand>, RequestPermissionsCommandValidator>();
+builder.Services.AddScoped<IValidator<ModifyPermissionsCommand>, ModifyPermissionsCommandValidator>();
+
+builder.Services.AddScoped<IPublisherBrokerService, PublisherBrokerService>();
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
 Log.Information("Configurando IoC.");

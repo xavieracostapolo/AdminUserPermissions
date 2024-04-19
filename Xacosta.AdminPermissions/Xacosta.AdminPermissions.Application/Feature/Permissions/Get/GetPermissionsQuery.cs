@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Xacosta.AdminPermissions.Application.Feature.Permissions.Get
+namespace Xacosta.AdminPermissions.Application.Feature
 {
     public class GetPermissionsQuery : IRequest<IEnumerable<GetPermissionsResponse>>
     {

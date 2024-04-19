@@ -1,4 +1,4 @@
-﻿namespace Xacosta.AdminPermissions.Application.Feature.Permissions.Get
+﻿namespace Xacosta.AdminPermissions.Application.Feature
 {
     public class GetPermissionsResponse
     {
