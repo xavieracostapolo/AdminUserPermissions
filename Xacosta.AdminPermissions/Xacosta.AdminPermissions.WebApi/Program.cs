@@ -32,11 +32,10 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
                 typeof(GetPermissionsQuery).Assembly
                 ));
 
-builder.Services.AddSingleton<IElasticService>(new ElasticService(clientElk));
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
 Log.Information("Configurando IoC.");
-builder.Services.AddDependencyInfraestructure();
+builder.Services.AddDependencyInfraestructure(clientElk);
 
 Log.Information("Configurando Automapper.");
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

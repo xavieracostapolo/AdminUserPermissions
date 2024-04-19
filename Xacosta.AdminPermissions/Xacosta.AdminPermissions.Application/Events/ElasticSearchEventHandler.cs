@@ -12,7 +12,7 @@ namespace Xacosta.AdminPermissions.Application.Events
         public async Task Handle(ElasticSearchEvent notification, CancellationToken cancellationToken)
         {            
             string jsonString = JsonSerializer.Serialize(notification);
-            _logger.LogInformation($"Confirmation {jsonString}");
+            _logger.LogInformation($"Publicando en elasticSearch {jsonString}");
 
             if (await _elasticService.Send(notification.Model))
             {

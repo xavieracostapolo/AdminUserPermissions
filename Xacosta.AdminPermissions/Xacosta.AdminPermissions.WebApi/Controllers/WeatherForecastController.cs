@@ -38,7 +38,7 @@ namespace Xacosta.AdminPermissions.WebApi.Controllers
                 Id = 1
             };
 
-            await _publisher.Publish(new ElasticSearchEvent()
+            _publisher.Publish(new ElasticSearchEvent()
             {
                 Accion = "POST",
                 Model = new Permission()
@@ -49,8 +49,9 @@ namespace Xacosta.AdminPermissions.WebApi.Controllers
                     Id = 2,
                     TipoPermiso = 3
                 }
-            }, cancellationToken); ;
-            await _publisher.Publish(new KafkaEvent() { Id = Guid.NewGuid().ToString(), NameOperation = "modify" }, cancellationToken);
+            }, cancellationToken); 
+
+            _publisher.Publish(new KafkaEvent() { Id = Guid.NewGuid().ToString(), NameOperation = "modify" }, cancellationToken);
             var res = await _sender.Send(query);
             // Publish a notification that the order has been created
             
