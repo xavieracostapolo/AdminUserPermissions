@@ -8,23 +8,28 @@ using Serilog.Sinks.Elasticsearch;
 using System.Reflection;
 using Xacosta.AdminPermissions.Application.Feature.Permissions.Get;
 using Xacosta.AdminPermissions.Application.Middlewares;
-using Xacosta.AdminPermissions.Domain.ContractsInfraestructure;
 using Xacosta.AdminPermissions.Infraestructure;
-using Xacosta.AdminPermissions.Infraestructure.Services;
 using Xacosta.AdminPermissions.WebApi.Middleware;
+
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+var configuration = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile(
+        $"appsettings.{environment}.json",
+        optional: true)
+    .Build();
 
 var builder = WebApplication.CreateBuilder(args);
 
 Log.Information("Configurando Serilog.");
-var clientElk = ConfigureLogging();
+var clientElk = ConfigureLogging(configuration, environment);
 builder.Host.UseSerilog();
 
 // Add services to the container.
 
 builder.Services.AddDbContextPool<PersistenceContext>(o =>
 {
-    //o.UseSqlServer("Specify the database connection string here...");
-    o.UseInMemoryDatabase("dbTest");
+    o.UseSqlServer(configuration.GetConnectionString("DataBase"));
 });
 
 Log.Information("Configurando MediaTR.");
@@ -63,18 +68,17 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope())
+{
+    PersistenceContext context = scope.ServiceProvider.GetRequiredService<PersistenceContext>();
+    //context.Database.Migrate();
+    context.Database.EnsureCreated();
+}
+
 app.Run();
 
-ElasticsearchClient ConfigureLogging()
+ElasticsearchClient ConfigureLogging(IConfigurationRoot configuration, string environment)
 {
-    var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-    var configuration = new ConfigurationBuilder()
-        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-        .AddJsonFile(
-            $"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json",
-            optional: true)
-        .Build();
-
     Log.Logger = new LoggerConfiguration()
         .Enrich.FromLogContext()
         .Enrich.WithExceptionDetails()

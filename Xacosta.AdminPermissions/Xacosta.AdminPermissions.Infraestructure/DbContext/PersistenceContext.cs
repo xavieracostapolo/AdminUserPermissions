@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
-using System.Reflection.Metadata;
 using Xacosta.AdminPermissions.Domain.Models;
 
 namespace Xacosta.AdminPermissions.Infraestructure
@@ -17,6 +16,7 @@ namespace Xacosta.AdminPermissions.Infraestructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            /*
             modelBuilder.Entity<Permission>(
                 entityBuilder =>
                 {
@@ -56,38 +56,9 @@ namespace Xacosta.AdminPermissions.Infraestructure
                     TipoPermiso = 1
                 }
             });
+            */
 
             base.OnModelCreating(modelBuilder);
         }
-    }
-
-    public partial class LinkPermissionTypePermission : Migration
-    {
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.CreateIndex(
-            name: "IX_Permissions_TipoPermiso",
-            table: "Permissions",
-            column: "TipoPermiso");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Permissions_PermissionTypes_TipoPermiso",
-                table: "Permissions",
-                column: "TipoPermiso",
-                principalTable: "PermissionTypes",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.NoAction);
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Permissions_PermissionTypes_TipoPermiso",
-                table: "Permissions");
-
-            migrationBuilder.DropIndex(
-                name: "IX_Permissions_TipoPermiso",
-                table: "Permissions");
-        }
-    }
+    }    
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Xacosta.AdminPermissions.Domain.Models
 {
@@ -7,6 +8,8 @@ namespace Xacosta.AdminPermissions.Domain.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string? Descripcion { get; set; }
+
+        [Required]
+        public string? Descripcion { get; set; }        
     }
 }

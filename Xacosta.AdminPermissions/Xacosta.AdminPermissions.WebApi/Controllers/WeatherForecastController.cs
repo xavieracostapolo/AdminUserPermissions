@@ -46,13 +46,14 @@ namespace Xacosta.AdminPermissions.WebApi.Controllers
                     ApellidoEmpleado = "Apellido",
                     FechaPermiso = DateOnly.FromDateTime(DateTime.Now),
                     NombreEmpleado = "Nombre de test",
-                    Id = 2,
-                    TipoPermiso = 3
+                    Id = 2
                 }
             }, cancellationToken); 
 
             _publisher.Publish(new KafkaEvent() { Id = Guid.NewGuid().ToString(), NameOperation = "modify" }, cancellationToken);
+            
             var res = await _sender.Send(query);
+            
             // Publish a notification that the order has been created
             
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

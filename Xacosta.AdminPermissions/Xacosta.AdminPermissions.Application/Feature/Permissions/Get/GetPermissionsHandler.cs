@@ -10,23 +10,28 @@ namespace Xacosta.AdminPermissions.Application.Feature.Permissions.Get
     {
         public async Task<IEnumerable<GetPermissionsResponse>> Handle(GetPermissionsQuery request, CancellationToken cancellationToken)
         {
-            await _unitOfWork.Repository<Permission>().Insert(new Permission()
+            var master = new PermissionType()
+            {
+                Descripcion = "Desc Type"
+            };
+
+            await _unitOfWork.Repository<PermissionType>().Insert(master);
+
+            var detail = new Permission()
             {
                 ApellidoEmpleado = "ApellidoEmpleado",
                 FechaPermiso = DateOnly.FromDateTime(DateTime.Now),
                 NombreEmpleado = "NombreEmpleado",
-                TipoPermiso = 1
-            });
+                PermissionType = master
+            };
 
-            await _unitOfWork.Repository<PermissionType>().Insert(new PermissionType()
-            {
-                Descripcion = "Desc Type"
-            });
+            await _unitOfWork.Repository<Permission>().Insert(detail);
 
             await _unitOfWork.Commit();
 
             var resp = await _unitOfWork.Repository<Permission>().Get();
             var resp2 = await _unitOfWork.Repository<PermissionType>().Get();
+
 
             if (resp == null)
                 throw new NotFoundException();
