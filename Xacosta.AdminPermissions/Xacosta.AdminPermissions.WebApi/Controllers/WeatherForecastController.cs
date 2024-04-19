@@ -38,7 +38,18 @@ namespace Xacosta.AdminPermissions.WebApi.Controllers
                 Id = 1
             };
 
-            await _publisher.Publish(new ElasticSearchEvent() { Accion = "POST", Model = new Permission() }, cancellationToken);
+            await _publisher.Publish(new ElasticSearchEvent()
+            {
+                Accion = "POST",
+                Model = new Permission()
+                {
+                    ApellidoEmpleado = "Apellido",
+                    FechaPermiso = DateOnly.FromDateTime(DateTime.Now),
+                    NombreEmpleado = "Nombre de test",
+                    Id = 2,
+                    TipoPermiso = 3
+                }
+            }, cancellationToken); ;
             await _publisher.Publish(new KafkaEvent() { Id = Guid.NewGuid().ToString(), NameOperation = "modify" }, cancellationToken);
             var res = await _sender.Send(query);
             // Publish a notification that the order has been created

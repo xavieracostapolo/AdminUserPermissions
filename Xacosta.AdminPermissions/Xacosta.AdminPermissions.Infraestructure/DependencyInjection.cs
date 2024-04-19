@@ -11,7 +11,7 @@ namespace Xacosta.AdminPermissions.Infraestructure
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IRepository<Permission>, Repository<Permission>>();
-            services.AddScoped<IRepository<PermissionType>, Repository<PermissionType>>();
+            services.AddScoped<IRepository<PermissionType>, Repository<PermissionType>>();            
         }
     }
 }
