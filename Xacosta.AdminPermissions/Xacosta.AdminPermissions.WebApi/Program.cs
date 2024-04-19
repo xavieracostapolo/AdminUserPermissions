@@ -116,3 +116,5 @@ ElasticsearchSinkOptions ConfigureElasticSink(IConfigurationRoot configuration, 
         IndexFormat = $"{Assembly.GetExecutingAssembly().GetName().Name.ToLower().Replace(".", "-")}-{environment?.ToLower().Replace(".", "-")}-{DateTime.UtcNow.Ticks}"
     };
 }
+
+public partial class Program { }

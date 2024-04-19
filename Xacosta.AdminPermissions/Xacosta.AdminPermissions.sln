@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacosta.AdminPermissions.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacosta.AdminPermissions.Tests", "Xacosta.AdminPermissions.Tests\Xacosta.AdminPermissions.Tests.csproj", "{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacosta.AdminPermisos.IntegrationTests", "Xacosta.AdminPermisos.IntegrationTests\Xacosta.AdminPermisos.IntegrationTests.csproj", "{DC9DCAF7-F807-4DAD-88AE-416149D4C26C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9DCAF7-F807-4DAD-88AE-416149D4C26C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9DCAF7-F807-4DAD-88AE-416149D4C26C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9DCAF7-F807-4DAD-88AE-416149D4C26C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9DCAF7-F807-4DAD-88AE-416149D4C26C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
