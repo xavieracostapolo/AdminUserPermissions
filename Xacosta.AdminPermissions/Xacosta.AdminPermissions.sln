@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacosta.AdminPermissions.WebApi", "Xacosta.AdminPermissions.WebApi\Xacosta.AdminPermissions.WebApi.csproj", "{F53326F8-EE2C-4632-9C11-492BF4CEFB40}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacosta.AdminPermissions.Domain", "Xacosta.AdminPermissions.Domain\Xacosta.AdminPermissions.Domain.csproj", "{F82695C6-C7FB-4310-B2F2-F3E77F79A881}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacosta.AdminPermissions.Infraestructure", "Xacosta.AdminPermissions.Infraestructure\Xacosta.AdminPermissions.Infraestructure.csproj", "{50D4B3C5-E24E-4056-BCE7-2E465B680AEA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xacosta.AdminPermissions.Application", "Xacosta.AdminPermissions.Application\Xacosta.AdminPermissions.Application.csproj", "{59B69E9B-F01C-4CAD-B476-1253CC04DD0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacosta.AdminPermissions.Tests", "Xacosta.AdminPermissions.Tests\Xacosta.AdminPermissions.Tests.csproj", "{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xacosta.AdminPermisos.IntegrationTests", "Xacosta.AdminPermisos.IntegrationTests\Xacosta.AdminPermisos.IntegrationTests.csproj", "{DC9DCAF7-F807-4DAD-88AE-416149D4C26C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F53326F8-EE2C-4632-9C11-492BF4CEFB40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F53326F8-EE2C-4632-9C11-492BF4CEFB40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F53326F8-EE2C-4632-9C11-492BF4CEFB40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F53326F8-EE2C-4632-9C11-492BF4CEFB40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F82695C6-C7FB-4310-B2F2-F3E77F79A881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F82695C6-C7FB-4310-B2F2-F3E77F79A881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F82695C6-C7FB-4310-B2F2-F3E77F79A881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F82695C6-C7FB-4310-B2F2-F3E77F79A881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50D4B3C5-E24E-4056-BCE7-2E465B680AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50D4B3C5-E24E-4056-BCE7-2E465B680AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50D4B3C5-E24E-4056-BCE7-2E465B680AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50D4B3C5-E24E-4056-BCE7-2E465B680AEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59B69E9B-F01C-4CAD-B476-1253CC04DD0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59B69E9B-F01C-4CAD-B476-1253CC04DD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59B69E9B-F01C-4CAD-B476-1253CC04DD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59B69E9B-F01C-4CAD-B476-1253CC04DD0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB5E1BE7-FAB3-4EF2-BC5B-323262C5AC21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9DCAF7-F807-4DAD-88AE-416149D4C26C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9DCAF7-F807-4DAD-88AE-416149D4C26C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9DCAF7-F807-4DAD-88AE-416149D4C26C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9DCAF7-F807-4DAD-88AE-416149D4C26C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6A19DF0-C789-4312-BAA5-D0251FFE0438}
+	EndGlobalSection
+EndGlobal

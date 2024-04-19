@@ -3,16 +3,16 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER app
 WORKDIR /app
-EXPOSE 8080
 EXPOSE 8081
+EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Xacosta.AdminPermissions.WebApi/Xacosta.AdminPermissions.WebApi.csproj", "Xacosta.AdminPermissions.WebApi/"]
-RUN dotnet restore "./Xacosta.AdminPermissions.WebApi/Xacosta.AdminPermissions.WebApi.csproj"
+COPY ["Xacosta.AdminPermissions/.", "Xacosta.AdminPermissions/"]
+RUN dotnet restore "./Xacosta.AdminPermissions/Xacosta.AdminPermissions.WebApi/Xacosta.AdminPermissions.WebApi.csproj"
 COPY . .
-WORKDIR "/src/Xacosta.AdminPermissions.WebApi"
+WORKDIR "/src/Xacosta.AdminPermissions/Xacosta.AdminPermissions.WebApi"
 RUN dotnet build "./Xacosta.AdminPermissions.WebApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
