@@ -20,9 +20,10 @@ bin/kafka-topics --create --topic quickstart-events --bootstrap-server localhost
 
 ##### Validar que el topico se creo bn
 bin/kafka-topics --describe --topic quickstart-events --bootstrap-server localhost:9092
+bin/kafka-topics --describe --topic operation-permission --bootstrap-server localhost:9092
 
 ##### Consumir mensajes de kakka desde la ventana de comandos, ubicarse en la carpeta raiz /
-bin/kafka-console-consumer --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+bin/kafka-console-consumer --topic operation-permission --from-beginning --bootstrap-server localhost:9092
 
 ##### Publicar mensajes en el topic de kafka
 bin/kafka-console-producer --topic quickstart-events --bootstrap-server localhost:9092
