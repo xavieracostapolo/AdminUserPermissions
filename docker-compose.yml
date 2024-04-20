@@ -5,7 +5,7 @@ services:
     container_name: front
     build: ./material-ui-vite-ts
     ports:
-        - 8080:9090
+        - 9090:8080
     networks:
       - elastic
     depends_on:

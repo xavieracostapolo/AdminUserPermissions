@@ -35,6 +35,9 @@ importers:
       react-dom:
         specifier: latest
         version: 18.2.0(react@18.2.0)
+      react-hook-form:
+        specifier: ^7.51.3
+        version: 7.51.3(react@18.2.0)
       react-router-dom:
         specifier: ^6.22.3
         version: 6.22.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -1242,6 +1245,12 @@ packages:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
       react: ^18.2.0
+
+  react-hook-form@7.51.3:
+    resolution: {integrity: sha512-cvJ/wbHdhYx8aviSWh28w9ImjmVsb5Y05n1+FW786vEZQJV5STNM0pW6ujS+oiBecb0ARBxJFyAnXj9+GHXACQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -2627,6 +2636,10 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+
+  react-hook-form@7.51.3(react@18.2.0):
+    dependencies:
+      react: 18.2.0
 
   react-is@16.13.1: {}
 

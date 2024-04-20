@@ -1,1 +1,2 @@
-export * from './PermissionRepository';
+export * from './ApiClient';
+export * from './usePermissionRepository';
