@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography'
-import { usePermissionService } from '../../application'
+import { useGetPermission } from '../../application'
 import TableContainer from '@mui/material/TableContainer'
 import Table from '@mui/material/Table'
 import TableHead from '@mui/material/TableHead'
@@ -13,8 +13,7 @@ import Box from '@mui/material/Box'
 interface FormDetailProps {}
 
 export const FormDetail = ({}: FormDetailProps) => {
-    const { data, isLoading, isError } =
-        usePermissionService().useGetPermission()
+    const { data, isLoading, isError } = useGetPermission()
 
     return (
         <Box p={1} m={1} sx={{ width: '100%' }}>

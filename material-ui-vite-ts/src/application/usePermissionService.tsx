@@ -2,26 +2,18 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { usePermissionRepository } from '../infraestructure'
 
 const key: any = 'permissions'
+const permissionRepository = usePermissionRepository()
 
-export const usePermissionService = () => {
+export const useGetPermission = () => {
+    return useQuery({ queryKey: [key], queryFn: permissionRepository.get })
+}
+
+export const useCreatePermission = () => {
     const queryClient = useQueryClient()
-    const permissionRepository = usePermissionRepository()
-    
-    const useGetPermission = () => {
-        return useQuery({ queryKey: [key], queryFn: permissionRepository.get })
-    }
-
-    const useCreatePermission = () => {
-        return useMutation({
-            mutationFn: permissionRepository.create,
-            onSuccess(data, variables, context) {
-                queryClient.invalidateQueries();
-            },
-        })
-    }
-
-    return {
-        useGetPermission,
-        useCreatePermission,
-    }
+    return useMutation({
+        mutationFn: permissionRepository.create,
+        onSuccess(data, variables, context) {
+            queryClient.invalidateQueries()
+        },
+    })
 }

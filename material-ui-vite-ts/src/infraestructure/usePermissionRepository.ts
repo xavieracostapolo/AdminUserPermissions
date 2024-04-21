@@ -2,6 +2,7 @@ import { Permission } from '../domain'
 import { apiClient } from './ApiClient'
 
 export const usePermissionRepository = () => {
+
     const get = async (): Promise<Permission[]> => {
         return (await apiClient.get<Permission[]>('/Permissions')).data
     }

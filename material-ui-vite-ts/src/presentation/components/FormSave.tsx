@@ -1,5 +1,4 @@
 import TextField from '@mui/material/TextField'
-import { usePermissionService } from '../../application'
 import { Permission } from '../../domain'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
@@ -8,11 +7,10 @@ import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import LinearProgress from '@mui/material/LinearProgress'
+import { useCreatePermission } from '../../application'
 
-interface FormSaveProps {}
-
-export const FormSave = ({}: FormSaveProps) => {
-    const create_permission = usePermissionService().useCreatePermission()
+export const FormSave = () => {
+    const create_permission = useCreatePermission()
 
     const {
         register,
@@ -103,9 +101,7 @@ export const FormSave = ({}: FormSaveProps) => {
                             </Grid>
                         </Grid>
                     </form>
-                    {create_permission.isPending && (
-                        <LinearProgress />
-                    )}
+                    {create_permission.isPending && <LinearProgress />}
                     {create_permission.isSuccess && (
                         <span>Created successfully ✅</span>
                     )}
