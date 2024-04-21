@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Xacosta.AdminPermissions\\Xacosta.AdminPermissions.WebApi"
   ],
-  "SelectedNode": "\\Xacosta.AdminPermissions.sln",
+  "SelectedNode": "\\Xacosta.AdminPermissions",
   "PreviewInSolutionExplorer": false
 }

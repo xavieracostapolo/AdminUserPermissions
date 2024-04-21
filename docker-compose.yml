@@ -1,14 +1,26 @@
 version: '3.8'
 
 services:  
+  front:
+    container_name: front
+    build: ./material-ui-vite-ts
+    ports:
+        - 9090:8080
+    networks:
+      - elastic
+    depends_on:
+      - api
+
   api:
-    container_name: backend
+    container_name: api
     build: .
     ports:
         - 8080:8080
         - 8081:8081
     networks:
       - elastic
+    depends_on:
+      - sqlserver
 
   sqlserver:
     container_name: sqlserver
